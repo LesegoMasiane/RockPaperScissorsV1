@@ -13,68 +13,59 @@ function getComputerChoice(){
 let a=Math.floor(Math.random()*3+1)
 
 if (a==1){
-    b='Rock'
+    b='ROCK'
 }else if (a==2) {
-    b='Paper'
-}else{
-    b='Scissors'
+    b='PAPER'
+}else if (a==3){
+    b='SCISSORS'
 }
 
-return b.toLocaleUpperCase()
+return b.toUpperCase()
 
 }
 
 
 function PlayRound(computerSelection,PlayerSelection){
 
-    let result ='no winner - play again'
+    let result ='You Lose';
+    
+
 
     computerSelection=getComputerChoice();
 
+    
     playerSelection=prompt('please type Rock, Paper or Scissors').toUpperCase();
 
+    console.log(computerSelection + ' and vs ' + playerSelection)
     //if same hands drawn
     if (computerSelection==playerSelection.toUpperCase()){
 
         result ='no winner - play again'
+    
+
+    }
 
         //win conditions
-    }else if (computerSelection=='ROCK' && playerSelection=='PAPER'){
+    if (computerSelection=='ROCK' && playerSelection=='PAPER'){
        
         result ='You Win !!!'
     }
 
-    else if (computerSelection=='SCISSORS' && playerSelection=='ROCK'){
+    if (computerSelection=='SCISSORS' && playerSelection=='ROCK'){
        
        result ='You Win !!!'
+    }
 
-   }else if (computerSelection=='PAPER' && playerSelection=='SCISSORS' ){
-    result ='You Win !!!'
+   if (computerSelection=='PAPER' && playerSelection=='SCISSORS' ){
+       result ='You Win !!!'
+
    }
 
-
-// lose conditions
-   if (playerSelection=='ROCK' && computerSelection=='PAPER'){
-       
-       result ='You Lose !!'
-   }
-
-   else if (playerSelection=='SCISSORS' && computerSelection=='ROCK'){
-      
-      result ='You Lose !!'
-
-  }else if (playerSelection=='PAPER' && computerSelection=='SCISSORS' ){
-   result ='You Lose !!'
-  }
-
-
-return result;
-
+   
+   return result;
 }
 
-//|| computerSelection=='SCISSORS' && playerSelection=='ROCK' || 
 
-console.log(getComputerChoice())
 console.log(PlayRound())
 
   </script>
