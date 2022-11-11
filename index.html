@@ -20,13 +20,62 @@ if (a==1){
     b='Scissors'
 }
 
-return b
+return b.toLocaleUpperCase()
 
 }
 
 
+function PlayRound(computerSelection,PlayerSelection){
+
+    let result ='no winner - play again'
+
+    computerSelection=getComputerChoice();
+
+    playerSelection=prompt('please type Rock, Paper or Scissors').toUpperCase();
+
+    //if same hands drawn
+    if (computerSelection==playerSelection.toUpperCase()){
+
+        result ='no winner - play again'
+
+        //win conditions
+    }else if (computerSelection=='ROCK' && playerSelection=='PAPER'){
+       
+        result ='You Win !!!'
+    }
+
+    else if (computerSelection=='SCISSORS' && playerSelection=='ROCK'){
+       
+       result ='You Win !!!'
+
+   }else if (computerSelection=='PAPER' && playerSelection=='SCISSORS' ){
+    result ='You Win !!!'
+   }
+
+
+// lose conditions
+   if (playerSelection=='ROCK' && computerSelection=='PAPER'){
+       
+       result ='You Lose !!'
+   }
+
+   else if (playerSelection=='SCISSORS' && computerSelection=='ROCK'){
+      
+      result ='You Lose !!'
+
+  }else if (playerSelection=='PAPER' && computerSelection=='SCISSORS' ){
+   result ='You Lose !!'
+  }
+
+
+return result;
+
+}
+
+//|| computerSelection=='SCISSORS' && playerSelection=='ROCK' || 
 
 console.log(getComputerChoice())
+console.log(PlayRound())
 
   </script>
 </body>
