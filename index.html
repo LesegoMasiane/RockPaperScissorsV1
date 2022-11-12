@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Page Title</title>
+  <title>Rock Paper Scissors You Win</title>
 </head>
 <body>
   <script>
@@ -10,6 +10,7 @@
 
 let playerScore=0;
 let computerScore=0;
+let ResultScore=0;
 
 function getComputerChoice(){
 let b;
@@ -28,48 +29,81 @@ return b.toUpperCase()
 }
 
 
+function displayRoundDetails(resultx){
+    let roundDetails=resultx;
+
+    console.log(roundDetails);
+}
+
+
 function PlayRound(computerSelection,playerSelection){
 
+    playerSelection=prompt('enter');
+
+    computerSelection=getComputerChoice();
 
 let computer=computerSelection.toUpperCase();
 
 let player=playerSelection.toUpperCase();
 
 
-let result ='computer -' + computer + ' vs player - ' + player + ' :You Lose';
-   
+let result ='';
+        
 
     //if same hands drawn
     if (computer==player.toUpperCase()){
-
-        result ='computer -' + computer + ' vs player - ' + player + ' :no winner - play again'
-
-
+        
+        result =" IT'S A DRAW ! ";
+        
     }
 
-        //win conditions
+        //Player win conditions
+
     if (computer=='ROCK' && player=='PAPER'){
        
-        result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
-       
+        result ="You Win! "  + player + " beats " + computer;
+        playerScore+=1;
     }
 
     if (computer=='SCISSORS' && player=='ROCK'){
        
-       result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
-      
+       result ="You Win! "  + player + " beats " + computer;
+
+       playerScore+=1;
     }
 
    if (computer=='PAPER' && player=='SCISSORS' ){
-       result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
-       
+       result ="You Win! "  + player + " beats " + computer;
+
+       playerScore+=1;
 
    }
+
+   // computer win conditions
+
+       //win conditions
+       if (computer=='PAPER' && player=='ROCK'){
+        
+       
+       result ="You Lose! "  + computer + " beats " + player;
+       computerScore+=1;
+   }
+
+   if (computer=='ROCK' && player=='SCISSORS'){
+      
+      result ="You Lose! "  + computer + " beats " + player;
+
+      computerScore+=1;
+   }
+
+  if (computer=='SCISSORS' && player=='PAPER' ){
+      result =" You Lose! "  + computer + " beats " + player;
+      computerScore+=1;
+
+  }
    
    return result;
 }
-
-
 
 
 
@@ -77,28 +111,26 @@ function game(){
 
     for (let i = 0; i < 5; i++) {
    // your code here!
-   let a =prompt('enter');
-let b=getComputerChoice();
-
-console.log(PlayRound(a,b));
+   
+   console.log(PlayRound());
 
 }
-//return ab;
+
+//determining score and displaying the winner
+
+if (playerScore==computerScore){
+console.log( 'Score: '+ playerScore + ' - ' + computerScore +' The Match Is Tied');
+}else if (playerScore>computerScore){
+    console.log('Score: '+ playerScore + ' - ' + computerScore +' Player Wins');
+}else if (computerScore>playerScore){
+    console.log('Score: '+ playerScore + ' - ' + computerScore + ' Computer wins');
+}
+
 }
 
 
-//computerSelection=getComputerChoice();
+game();
 
-    
-//playerSelection=prompt('please type Rock, Paper or Scissors').toUpperCase();
-
-//console.log(computerSelection + ' and vs ' + playerSelection)
-
-//console.log(game);
-
-//console.log(playerScore)
-//console.log(computerScore)
-console.log(game());
 
   </script>
 </body>
