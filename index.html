@@ -7,9 +7,12 @@
 <body>
   <script>
     // Your JavaScript goes here!
-    
+
+let playerScore=0;
+let computerScore=0;
+
 function getComputerChoice(){
-    let b;
+let b;
 let a=Math.floor(Math.random()*3+1)
 
 if (a==1){
@@ -25,48 +28,77 @@ return b.toUpperCase()
 }
 
 
-function PlayRound(computerSelection,PlayerSelection){
-
-    let result ='You Lose';
-    
+function PlayRound(computerSelection,playerSelection){
 
 
-    computerSelection=getComputerChoice();
+let computer=computerSelection.toUpperCase();
 
-    
-    playerSelection=prompt('please type Rock, Paper or Scissors').toUpperCase();
+let player=playerSelection.toUpperCase();
 
-    console.log(computerSelection + ' and vs ' + playerSelection)
+
+let result ='computer -' + computer + ' vs player - ' + player + ' :You Lose';
+   
+
     //if same hands drawn
-    if (computerSelection==playerSelection.toUpperCase()){
+    if (computer==player.toUpperCase()){
 
-        result ='no winner - play again'
-    
+        result ='computer -' + computer + ' vs player - ' + player + ' :no winner - play again'
+
 
     }
 
         //win conditions
-    if (computerSelection=='ROCK' && playerSelection=='PAPER'){
+    if (computer=='ROCK' && player=='PAPER'){
        
-        result ='You Win !!!'
+        result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
+       
     }
 
-    if (computerSelection=='SCISSORS' && playerSelection=='ROCK'){
+    if (computer=='SCISSORS' && player=='ROCK'){
        
-       result ='You Win !!!'
+       result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
+      
     }
 
-   if (computerSelection=='PAPER' && playerSelection=='SCISSORS' ){
-       result ='You Win !!!'
+   if (computer=='PAPER' && player=='SCISSORS' ){
+       result ='computer -' + computer + ' vs player - ' + player + ' :You Win !!!'
+       
 
    }
-
    
    return result;
 }
 
 
-console.log(PlayRound())
+
+
+
+function game(){
+
+    for (let i = 0; i < 5; i++) {
+   // your code here!
+   let a =prompt('enter');
+let b=getComputerChoice();
+
+console.log(PlayRound(a,b));
+
+}
+//return ab;
+}
+
+
+//computerSelection=getComputerChoice();
+
+    
+//playerSelection=prompt('please type Rock, Paper or Scissors').toUpperCase();
+
+//console.log(computerSelection + ' and vs ' + playerSelection)
+
+//console.log(game);
+
+//console.log(playerScore)
+//console.log(computerScore)
+console.log(game());
 
   </script>
 </body>
