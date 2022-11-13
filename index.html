@@ -7,12 +7,17 @@
 </head>
 <body>
     <h4>Let's Play Rock, Paper, Scissors.</h4><br/>
-  <button onclick="PlayRound('ROCK')">Choose ROCK</button><br/><br/>
-  <button onclick="PlayRound('PAPER')">Choose PAPER</button><br/><br/>
-  <button onclick="PlayRound('SCISSORS')">Choose SCISSORS</button><br/><br/><br/>
+  <button onclick="PlayRound('ROCK')" style="width:200px;">Choose ROCK</button><br/><br/>
+  <button onclick="PlayRound('PAPER')" style="width:200px;">Choose PAPER</button><br/><br/>
+  <button onclick="PlayRound('SCISSORS')" style="width:200px;">Choose SCISSORS</button><br/><br/><br/>
 
-  <div id="roundresult"> SCORE:</div><br/>
-  <p id="outcome"></p>
+  
+
+  <h3>Score:Computer    -     Player</h3>
+  <div id="roundresult" style="margin-left:100px;"></div><br/>
+  <p id="score" style="margin-left:20px;"></p><br/><br/>
+  <h4 id="outcome" style="margin-left:20px;"></h4><br/>
+  <button onclick="playAgain()" style="width:200px;">PLAY AGAIN</button>
 
 </body>
 </html>

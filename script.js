@@ -3,6 +3,8 @@
  let playerScore=0;
  let computerScore=0;
  let ResultScore=0;
+
+ document.querySelector('#outcome').textContent=''
  
  function getComputerChoice(){
  let b;
@@ -19,11 +21,25 @@
 
 }
 
+function playAgain(){
+    document.querySelector('#outcome').textContent='';
+    playerScore=0;
+    computerScore=0;
+    document.querySelector('#roundresult').textContent=computerScore + ' - ' + playerScore;
+
+}
+
 
 function displayRoundDetails(resultx){
     let roundDetails=resultx;
 
-    console.log(roundDetails);
+    //document.querySelector('#roundresult').textContent=computerScore + ' - ' + playerScore;
+    document.querySelector('#roundresult').textContent=computerScore + ' - ' + playerScore;
+
+    document.querySelector('#score').textContent=roundDetails;
+
+    
+    //console.log(roundDetails);
 }
 
 
@@ -95,21 +111,22 @@ let result ='';
    
    displayRoundDetails(result);
 
-   console.log('Score: '+ playerScore + ' - ' + computerScore );
+  
+   //div.append('Score: '+ playerScore + ' - ' + computerScore );
+
+   //console.log('Score: '+ playerScore + ' - ' + computerScore );
 
    //end game when player or computer reaches 5 points
    if (playerScore ==5){
-    console.log('You Win');
+    document.querySelector('#outcome').textContent='You Win, Play Again' ;
 
     //reseting score counters and the display
 
-    console.clear;
     playerScore=0;
     computerScore=0;
 
    }else if (computerScore==5){
-    console.log('You Lose')
-    console.clear;
+    document.querySelector('#outcome').textContent='You Lose, Play Again'
     playerScore=0;
     computerScore=0;
 
